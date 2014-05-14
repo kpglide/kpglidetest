@@ -18,12 +18,8 @@ manager.add_command('db', MigrateCommand)
 
 @manager.command
 def deploy():
-	from flask.ext.migrate import upgrade
-	from app.models import Role, User
-	
+	from flask.ext.migrate import upgrade	
 	upgrade()
 	
-	Role.insert_roles()
-
 if __name__ == '__main__':
     manager.run()
